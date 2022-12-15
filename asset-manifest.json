@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/upstage-ui-design/static/css/main.3900d068.css",
-    "main.js": "/upstage-ui-design/static/js/main.2010c368.js",
+    "main.js": "/upstage-ui-design/static/js/main.e46a8dbb.js",
     "index.html": "/upstage-ui-design/index.html",
-    "main.2010c368.js.map": "/upstage-ui-design/static/js/main.2010c368.js.map"
+    "main.e46a8dbb.js.map": "/upstage-ui-design/static/js/main.e46a8dbb.js.map"
   },
   "entrypoints": [
     "static/css/main.3900d068.css",
-    "static/js/main.2010c368.js"
+    "static/js/main.e46a8dbb.js"
   ]
 }
