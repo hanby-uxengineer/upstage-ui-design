@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useTable } from "react-table";
+import { useTable, useSortBy } from "react-table";
 import { TableButton } from "./Button";
 
 const StyledTable = styled.div`
@@ -26,7 +26,8 @@ const StyledTable = styled.div`
     }
 
     th:nth-child(1), td:nth-child(1) {
-      text-align: left;
+      font-weight: 500;
+      border-right: 1px solid #ECF1FF;
     }
 
     th:nth-child(2), td:nth-child(2) {
@@ -59,7 +60,7 @@ const Action = ({ value }) => {
 
 export default function Table({ columns, data }) {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-    useTable({ columns, data });
+    useTable({ columns, data }, useSortBy);
 
   return (
     <StyledTable>
@@ -68,7 +69,15 @@ export default function Table({ columns, data }) {
           {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column) => (
-                <th {...column.getHeaderProps()}>{column.render("Header")}</th>
+                <th {...column.getHeaderProps(column.getSortByToggleProps())}>{column.render("Header")}
+                  <span>
+                    {column.isSorted
+                      ? column.isSortedDesc
+                        ? ' ▼'
+                        : ' ▲'
+                      : ''}
+                  </span>
+                </th>
               ))}
             </tr>
           ))}

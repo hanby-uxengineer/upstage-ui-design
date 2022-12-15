@@ -6,22 +6,20 @@ import { GlobalOuter, GlobalInner } from "../styles/GlobalLayout";
 
 const StyledHome = styled.div`
   width: 100%;
-  min-height: 100vh;
+  min-height: calc(100vh - 10rem);
 `;
 
 export default function Home() {
   
   return (
-    <>
+    <StyledHome>
       <Header />
       <Title title="Model" explanation="모델간 성능 점수를 비교하여 배포하기"/>
       <GlobalOuter>
         <GlobalInner>
-          <StyledHome>
             <Data />
-          </StyledHome>
         </GlobalInner>
       </GlobalOuter>
-    </>
+    </StyledHome>
   );
 }

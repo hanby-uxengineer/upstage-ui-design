@@ -1,22 +1,31 @@
-import styled from "styled-components";
+import { useMemo } from "react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import { faker } from '@faker-js/faker';
 import { Card } from "./Card";
 import Table, { Action } from './Table';
-import { useMemo } from "react";
+import { Button } from "./Button";
 
-import { Link } from "react-router-dom";
 
 faker.seed(100);
 
 export default function Data() {
+  const [number, setNumber] = useState(5);
+
+  const onIncrease = () => {
+    setNumber(number + 1);
+  }
+
   const columns = useMemo(() => [
     {
       Header: "Model",
       accessor: "model",
+      sticky: "left",
     },
     {
       Header: "Score",
       accessor: "score",
+      sticky: "left",
     },
     {
       Header: "Data A",
@@ -45,20 +54,21 @@ export default function Data() {
     {
       Header: "Action",
       accessor: "action",
+      sticky: "right",
       Cell: ({ cell: { value } }) => <Link to="/upstage-ui-design/detail"><Action value={value} /></Link>,
     },
   ], []);
 
   const data = useMemo(() => 
-    Array(4).fill().map(() => ({
-      model: "Model-" + faker.word.noun({ length: { min: 5, max: 7 } }),
-      score: faker.datatype.float({ "min":0, "max":1, "precision": 0.001 }),
-      data_a: faker.datatype.float({ "min":0, "max":1, "precision": 0.001 }),
-      data_b: faker.datatype.float({ "min":0, "max":1, "precision": 0.001 }),
-      data_c: faker.datatype.float({ "min":0, "max":1, "precision": 0.001 }),
-      data_d: faker.datatype.float({ "min":0, "max":1, "precision": 0.001 }),
-      data_e: faker.datatype.float({ "min":0, "max":1, "precision": 0.001 }),
-      data_f: faker.datatype.float({ "min":0, "max":1, "precision": 0.001 }),
+    Array(number).fill().map((arr, i) => ({
+      model: "Model-"+('00' + i).slice(-2),
+      score: faker.datatype.float({ "min":0, "max":1, "precision": 0.001 }).toFixed(3),
+      data_a: faker.datatype.float({ "min":0, "max":1, "precision": 0.001 }).toFixed(3),
+      data_b: faker.datatype.float({ "min":0, "max":1, "precision": 0.001 }).toFixed(3),
+      data_c: faker.datatype.float({ "min":0, "max":1, "precision": 0.001 }).toFixed(3),
+      data_d: faker.datatype.float({ "min":0, "max":1, "precision": 0.001 }).toFixed(3),
+      data_e: faker.datatype.float({ "min":0, "max":1, "precision": 0.001 }).toFixed(3),
+      data_f: faker.datatype.float({ "min":0, "max":1, "precision": 0.001 }).toFixed(3),
       action: ["deploy", "detail"],
     }))
   );
@@ -66,6 +76,7 @@ export default function Data() {
   return (
     <Card>
       <h2>Model</h2>
+      <Button onClick={onIncrease}>Create Model</Button>
       <Table columns={columns} data={data} />
     </Card>
   );

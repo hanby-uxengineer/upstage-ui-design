@@ -3,7 +3,7 @@ import styled from "styled-components";
 const GlobalOuter = styled.div`
     display: flex;
     width: 100%;
-    max-width: 1440px;
+    max-width: 144rem;
     height: inherit;
     justify-content: center;
     align-items: center;
