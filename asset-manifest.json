@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/%EB%A6%AC%ED%8C%8C%EC%A7%80%ED%86%A0%EB%A6%AC%EB%AA%85/static/css/main.073c9b0a.css",
-    "main.js": "/%EB%A6%AC%ED%8C%8C%EC%A7%80%ED%86%A0%EB%A6%AC%EB%AA%85/static/js/main.f3f948b5.js",
-    "static/js/787.f7640041.chunk.js": "/%EB%A6%AC%ED%8C%8C%EC%A7%80%ED%86%A0%EB%A6%AC%EB%AA%85/static/js/787.f7640041.chunk.js",
-    "static/media/logo.svg": "/%EB%A6%AC%ED%8C%8C%EC%A7%80%ED%86%A0%EB%A6%AC%EB%AA%85/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
-    "index.html": "/%EB%A6%AC%ED%8C%8C%EC%A7%80%ED%86%A0%EB%A6%AC%EB%AA%85/index.html",
-    "main.073c9b0a.css.map": "/%EB%A6%AC%ED%8C%8C%EC%A7%80%ED%86%A0%EB%A6%AC%EB%AA%85/static/css/main.073c9b0a.css.map",
-    "main.f3f948b5.js.map": "/%EB%A6%AC%ED%8C%8C%EC%A7%80%ED%86%A0%EB%A6%AC%EB%AA%85/static/js/main.f3f948b5.js.map",
-    "787.f7640041.chunk.js.map": "/%EB%A6%AC%ED%8C%8C%EC%A7%80%ED%86%A0%EB%A6%AC%EB%AA%85/static/js/787.f7640041.chunk.js.map"
+    "main.css": "/upstage-ui-design/static/css/main.073c9b0a.css",
+    "main.js": "/upstage-ui-design/static/js/main.882227d9.js",
+    "static/js/787.f7640041.chunk.js": "/upstage-ui-design/static/js/787.f7640041.chunk.js",
+    "static/media/logo.svg": "/upstage-ui-design/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/upstage-ui-design/index.html",
+    "main.073c9b0a.css.map": "/upstage-ui-design/static/css/main.073c9b0a.css.map",
+    "main.882227d9.js.map": "/upstage-ui-design/static/js/main.882227d9.js.map",
+    "787.f7640041.chunk.js.map": "/upstage-ui-design/static/js/787.f7640041.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.f3f948b5.js"
+    "static/js/main.882227d9.js"
   ]
 }
