@@ -1,80 +1,72 @@
 import styled from "styled-components";
 import { faker } from '@faker-js/faker';
-import Table from './Table';
+import { Card } from "./Card";
+import Table, { Action } from './Table';
 import { useMemo } from "react";
 
-faker.seed(10);
+import { Link } from "react-router-dom";
 
-const StyledData = styled.div`
-  background: white;
-  padding: 3.2rem;
-  border-radius: 1.6rem;
-  box-shadow: 0 0.1rem 1rem rgba(113, 122, 148, 0.1);
-`;
+faker.seed(100);
 
 export default function Data() {
   const columns = useMemo(() => [
     {
-      Header: "MODEL",
+      Header: "Model",
       accessor: "model",
     },
     {
-      Header: "SCORE",
+      Header: "Score",
       accessor: "score",
     },
     {
-      Header: "DATA A",
+      Header: "Data A",
       accessor: "data_a",
     },
     {
-      Header: "DATA B",
+      Header: "Data B",
       accessor: "data_b",
     },
     {
-      Header: "DATA C",
+      Header: "Data C",
       accessor: "data_c",
     },
     {
-      Header: "DATA D",
+      Header: "Data D",
       accessor: "data_d",
     },
     {
-      Header: "DATA E",
+      Header: "Data E",
       accessor: "data_e",
     },
     {
-      Header: "DATA F",
+      Header: "Data F",
       accessor: "data_f",
     },
     {
-      Header: "DEPLOY",
-      accessor: "deploy",
-    },
-    {
-      Header: "DETAIL",
-      accessor: "detail",
+      Header: "Action",
+      accessor: "action",
+      Cell: ({ cell: { value } }) => <Link to="/upstage-ui-design/detail"><Action value={value} /></Link>,
     },
   ], []);
 
   const data = useMemo(() => 
-    Array(10).fill().map(() => ({
-      model: faker.name.lastName(),
-      score: faker.name.firstName(),
-      data_a: faker.name.lastName(),
-      data_b: faker.name.firstName(),
-      data_c: faker.name.lastName(),
-      data_d: faker.name.firstName(),
-      data_e: faker.name.lastName(),
-      data_f: faker.name.firstName(),
-      deploy: "deploy",
-      detail: "detail",
+    Array(4).fill().map(() => ({
+      model: "Model-" + faker.word.noun({ length: { min: 5, max: 7 } }),
+      score: faker.datatype.float({ "min":0, "max":1, "precision": 0.001 }),
+      data_a: faker.datatype.float({ "min":0, "max":1, "precision": 0.001 }),
+      data_b: faker.datatype.float({ "min":0, "max":1, "precision": 0.001 }),
+      data_c: faker.datatype.float({ "min":0, "max":1, "precision": 0.001 }),
+      data_d: faker.datatype.float({ "min":0, "max":1, "precision": 0.001 }),
+      data_e: faker.datatype.float({ "min":0, "max":1, "precision": 0.001 }),
+      data_f: faker.datatype.float({ "min":0, "max":1, "precision": 0.001 }),
+      action: ["deploy", "detail"],
     }))
   );
 
   return (
-    <StyledData>
+    <Card>
       <h2>Model</h2>
       <Table columns={columns} data={data} />
-    </StyledData>
+    </Card>
   );
 }

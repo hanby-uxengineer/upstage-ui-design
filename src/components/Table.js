@@ -1,17 +1,61 @@
 import styled from "styled-components";
 import { useTable } from "react-table";
+import { TableButton } from "./Button";
 
 const StyledTable = styled.div`
   width: 100%;
 
   table {
     width: 100%;
+    border-collapse: collapse;
 
     thead {
-      
+      background: #ECF1FF;
+      height: 3.6rem;
+    }
+
+    th {
+      width: 5rem;
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+
+    td {
+      font-size: 1.2rem;
+      font-weight: 300;
+    }
+
+    th:nth-child(1), td:nth-child(1) {
+      text-align: left;
+    }
+
+    th:nth-child(2), td:nth-child(2) {
+      border-right: 1px solid #ECF1FF;
+      box-shadow: 2rem 0 1rem rgba(113, 122, 148, 0.05);
+    }
+
+    th:nth-child(9), td:nth-child(9) {
+      border-left: 1px solid #ECF1FF;
+      box-shadow: -2rem 0 1rem rgba(113, 122, 148, 0.05);
+    }
+
+    th, td {
+      text-align: center;
+      padding: 1rem 1.6rem;
+      border-bottom: 0.1rem solid #ECF1FF;
     }
   }
 `;
+
+const Action = ({ value }) => {
+  return (
+    <div style={{ textAlign: 'center' }}>
+      {value.map((action, index) => {
+        return <TableButton key={index}>{action}</TableButton>;
+      })}
+    </div>
+  );
+};
 
 export default function Table({ columns, data }) {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
@@ -45,3 +89,5 @@ export default function Table({ columns, data }) {
     </StyledTable>
   );
 }
+
+export { Action };
