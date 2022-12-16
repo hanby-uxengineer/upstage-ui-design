@@ -10,14 +10,49 @@ const StyledTable = styled.div`
     border-collapse: collapse;
 
     thead {
-      background: #ECF1FF;
       height: 3.6rem;
+      width: 10rem;
+      background: #ECF1FF;
+    }
+
+    tbody {
+      width: 10rem;
+
+      tr {
+        background: white;
+        transition: background 0.3s ease-in-out;
+
+        :hover {
+          background: rgba(236, 241, 255, 0.5);
+          transition: background 0.3s ease-in-out;
+        }
+
+        :hover button {
+          background: #805CFB;
+          color: white;
+          transition: all 0.3s ease-in-out;
+        }
+
+        button {
+          :hover {
+            background: #A69FFF;
+            color: white;
+            transition: all 0.3s ease-in-out;
+          }
+        }
+      }
     }
 
     th {
       width: 5rem;
       font-size: 1.2rem;
       font-weight: 500;
+      transition: background 0.3s ease-in-out;
+
+      :hover {
+        background: #A69FFF;
+        transition: background 0.3s ease-in-out;
+      }
     }
 
     td {
@@ -25,25 +60,30 @@ const StyledTable = styled.div`
       font-weight: 300;
     }
 
-    th:nth-child(1), td:nth-child(1) {
-      font-weight: 500;
-      border-right: 1px solid #ECF1FF;
-    }
-
-    th:nth-child(2), td:nth-child(2) {
-      border-right: 1px solid #ECF1FF;
-      box-shadow: 2rem 0 1rem rgba(113, 122, 148, 0.05);
-    }
-
-    th:nth-child(9), td:nth-child(9) {
-      border-left: 1px solid #ECF1FF;
-      box-shadow: -2rem 0 1rem rgba(113, 122, 148, 0.05);
-    }
-
     th, td {
       text-align: center;
       padding: 1rem 1.6rem;
       border-bottom: 0.1rem solid #ECF1FF;
+    }
+
+    th:nth-child(1), td:nth-child(1) {
+      font-weight: 500;
+    }
+
+    th:nth-child(n+2), td:nth-child(n+2) {
+      border-left: 1px solid rgba(236, 241, 255, 0.3);
+    }
+
+    th:nth-child(2), td:nth-child(2) {
+      box-shadow: 2rem 0 1rem rgba(113, 122, 148, 0.05);
+    }
+
+    th:nth-child(10), td:nth-child(10) {
+      box-shadow: -2rem 0 1rem rgba(113, 122, 148, 0.05);
+    }
+
+    th:nth-child(n+10), td:nth-child(n+10) {
+      max-width: 6rem;
     }
   }
 `;
@@ -51,9 +91,7 @@ const StyledTable = styled.div`
 const Action = ({ value }) => {
   return (
     <div style={{ textAlign: 'center' }}>
-      {value.map((action, index) => {
-        return <TableButton key={index}>{action}</TableButton>;
-      })}
+      <TableButton>{value}</TableButton>
     </div>
   );
 };

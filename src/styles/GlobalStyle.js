@@ -21,14 +21,28 @@ const GlobalStyle = createGlobalStyle`
 	h1 {
 		font-size: 2rem;
     font-weight: 700;
-    margin: 0.8rem;
+    margin-bottom: 0.8rem;
+    color: #717A94;
+	}
+
+  h2 {
+		font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+    color: black;
+	}
+
+  h3 {
+		font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
     color: #717A94;
 	}
 
   p {
     font-size: 1.2rem;
     font-weight: 500;
-    margin: 0.8rem;
+    margin-bottom: 0.4rem;
     color: #717A94;
   }
 

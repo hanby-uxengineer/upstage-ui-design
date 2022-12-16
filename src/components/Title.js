@@ -3,7 +3,7 @@ import { GlobalOuter, GlobalInner } from "../styles/GlobalLayout";
 
 const StyledTitle = styled.div`
   width: 100%;
-  height: 12rem;
+  height: 16rem;
   display: flex;
   flex-direction: column;
   justify-content: center;

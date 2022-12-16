@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import upstageLogo from "../images/upstage.png";
 import { GlobalInner } from "../styles/GlobalLayout";
@@ -20,7 +21,7 @@ export default function Header() {
   return(
     <StyledHeader>
       <GlobalInner>
-        <img src={upstageLogo} alt="upstage logo" />
+        <Link to="/upstage-ui-design"><img src={upstageLogo} alt="upstage logo" /></Link>
       </GlobalInner>
     </StyledHeader>
   );

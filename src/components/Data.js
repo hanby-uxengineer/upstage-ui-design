@@ -2,12 +2,22 @@ import { useMemo } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { faker } from '@faker-js/faker';
+import styled from "styled-components";
 import { Card } from "./Card";
 import Table, { Action } from './Table';
 import { Button } from "./Button";
 
-
 faker.seed(100);
+
+const StyledCard = styled(Card)`
+  margin-bottom: 10rem;
+`;
+
+const ButtonWrapper = styled.div`
+  margin-bottom: 1.6rem;
+  display: flex;
+  justify-content: space-between;
+`;
 
 export default function Data() {
   const [number, setNumber] = useState(5);
@@ -52,16 +62,24 @@ export default function Data() {
       accessor: "data_f",
     },
     {
-      Header: "Action",
-      accessor: "action",
-      sticky: "right",
+      Header: "My Data",
+      accessor: "my_data",
+    },
+    {
+      Header: "Deploy",
+      accessor: "deploy",
+      Cell: ({ cell: { value } }) => <Action value={value} />,
+    },
+    {
+      Header: "Detail",
+      accessor: "detail",
       Cell: ({ cell: { value } }) => <Link to="/upstage-ui-design/detail"><Action value={value} /></Link>,
     },
   ], []);
 
   const data = useMemo(() => 
     Array(number).fill().map((arr, i) => ({
-      model: "Model-"+('00' + i).slice(-2),
+      model: "Model-"+('00' + (i+1)).slice(-2),
       score: faker.datatype.float({ "min":0, "max":1, "precision": 0.001 }).toFixed(3),
       data_a: faker.datatype.float({ "min":0, "max":1, "precision": 0.001 }).toFixed(3),
       data_b: faker.datatype.float({ "min":0, "max":1, "precision": 0.001 }).toFixed(3),
@@ -69,15 +87,19 @@ export default function Data() {
       data_d: faker.datatype.float({ "min":0, "max":1, "precision": 0.001 }).toFixed(3),
       data_e: faker.datatype.float({ "min":0, "max":1, "precision": 0.001 }).toFixed(3),
       data_f: faker.datatype.float({ "min":0, "max":1, "precision": 0.001 }).toFixed(3),
-      action: ["deploy", "detail"],
+      my_data: faker.datatype.float({ "min":0, "max":1, "precision": 0.001 }).toFixed(3),
+      deploy: "deploy",
+      detail: "detail",
     }))
   );
 
   return (
-    <Card>
-      <h2>Model</h2>
-      <Button onClick={onIncrease}>Create Model</Button>
+    <StyledCard>
+      <ButtonWrapper>
+        <h2>Model <span style={{ color: '#717A94' }}>({number})</span></h2>
+        <Button onClick={onIncrease}>+ Create Model</Button>
+      </ButtonWrapper>
       <Table columns={columns} data={data} />
-    </Card>
+    </StyledCard>
   );
 }

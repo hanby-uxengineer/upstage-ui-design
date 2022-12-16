@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <StyledHome>
       <Header />
-      <Title title="Model" explanation="모델간 성능 점수를 비교하여 배포하기"/>
+      <Title title="Model Dashboard" explanation="모델간 성능 점수를 비교하여 배포하기"/>
       <GlobalOuter>
         <GlobalInner>
             <Data />
