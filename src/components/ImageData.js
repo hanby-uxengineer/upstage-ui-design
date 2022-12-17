@@ -3,8 +3,6 @@ import styled from "styled-components";
 import { Card } from "./Card";
 import Images from "./Images"
 
-faker.seed(100);
-
 const StyledCard = styled(Card)`
   margin-bottom: 3.2rem;
 `;

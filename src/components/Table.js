@@ -100,11 +100,11 @@ const Action = ({ value }) => {
       {
         value === "detail"
         ? <TableButton style={{ display:"flex", alignItems:"center" }}>
-            <img src={detailIcon} style={{ width:"1.5rem", height:"1.5rem", marginRight:"0.4rem" }} />
+            <img src={detailIcon} style={{ width:"1rem", height:"1rem", marginRight:"0.4rem" }} />
             {value}
           </TableButton>
         : <TableButton style={{ display:"flex", alignItems:"center" }}>
-            <img src={deployIcon} style={{ width:"1.5rem", height:"1.5rem", marginRight:"0.4rem" }} />
+            <img src={deployIcon} style={{ width:"1rem", height:"1rem", marginRight:"0.4rem" }} />
             {value}
           </TableButton>
       }

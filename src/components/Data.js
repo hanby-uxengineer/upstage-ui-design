@@ -8,8 +8,6 @@ import Table, { Action } from './Table';
 import { Button, TableButton } from "./Button";
 import addLightIcon from "../images/add_light.png"
 
-faker.seed(100);
-
 const StyledCard = styled(Card)`
   margin-bottom: 10rem;
 `;

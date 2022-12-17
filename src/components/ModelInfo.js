@@ -5,8 +5,6 @@ import { Button } from "./Button";
 import { faker } from "@faker-js/faker";
 import deployLightIcon from "../images/deploy_light.png"
 
-faker.seed(10);
-
 const StyledCard = styled(Card)`
   width: 50%;
   height: 42rem;

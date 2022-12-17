@@ -7,8 +7,6 @@ import settingIcon from "../images/setting.png";
 import analysisIcon from "../images/analysis.png";
 import notificationIcon from "../images/notification.png"
 
-faker.seed(10);
-
 const StyledNav = styled.div`
   width: 6.4rem;
   height: 100vh;

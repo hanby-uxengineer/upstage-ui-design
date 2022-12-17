@@ -3,8 +3,6 @@ import styled from "styled-components";
 import { faker } from '@faker-js/faker';
 import uploadIcon from "../images/upload.png"
 
-faker.seed(100);
-
 const StyledImages = styled.div`
   display: flex;
   gap: 1.2rem;
