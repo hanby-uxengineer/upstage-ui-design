@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Card } from "./Card";
+import addIcon from "../images/add.png"
 
 const StyledCard = styled(Card)`
   margin-bottom: 0;
@@ -19,8 +20,9 @@ const StyledCard = styled(Card)`
 
 export default function AddData() {
   return(
-    <StyledCard>
-      <h3>+ Add Data</h3>
+    <StyledCard style={{ display:"flex", alignItems:"center" }}>
+      <img src={addIcon} style={{ width:"1.8rem", height:"1.8rem", marginRight:"0.4rem" }} />
+      <h3 style={{ margin:0 }}>Add Data</h3>
     </StyledCard>
   );
 }

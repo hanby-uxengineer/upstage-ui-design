@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { useTable, useSortBy } from "react-table";
 import { TableButton } from "./Button";
+import detailIcon from "../images/detail.png"
+import deployIcon from "../images/deploy.png"
 
 const StyledTable = styled.div`
   width: 100%;
@@ -27,16 +29,9 @@ const StyledTable = styled.div`
           transition: background 0.3s ease-in-out;
         }
 
-        :hover button {
-          background: #805CFB;
-          color: white;
-          transition: all 0.3s ease-in-out;
-        }
-
         button {
           :hover {
-            background: #A69FFF;
-            color: white;
+            background: #CCD9FF;
             transition: all 0.3s ease-in-out;
           }
         }
@@ -49,8 +44,8 @@ const StyledTable = styled.div`
       font-weight: 500;
       transition: background 0.3s ease-in-out;
 
-      :hover {
-        background: #A69FFF;
+      :nth-child(n+2):nth-child(-n+9):hover {
+        background: #CCD9FF;
         transition: background 0.3s ease-in-out;
       }
     }
@@ -68,6 +63,11 @@ const StyledTable = styled.div`
 
     th:nth-child(1), td:nth-child(1) {
       font-weight: 500;
+
+      span {
+        /* visibility: hidden; */
+        display: none;
+      }
     }
 
     th:nth-child(n+2), td:nth-child(n+2) {
@@ -84,6 +84,12 @@ const StyledTable = styled.div`
 
     th:nth-child(n+10), td:nth-child(n+10) {
       max-width: 6rem;
+      padding: 0.4rem;
+
+      span {
+        /* visibility: hidden; */
+        display: none;
+      }
     }
   }
 `;
@@ -91,7 +97,17 @@ const StyledTable = styled.div`
 const Action = ({ value }) => {
   return (
     <div style={{ textAlign: 'center' }}>
-      <TableButton>{value}</TableButton>
+      {
+        value === "detail"
+        ? <TableButton style={{ display:"flex", alignItems:"center" }}>
+            <img src={detailIcon} style={{ width:"1.5rem", height:"1.5rem", marginRight:"0.4rem" }} />
+            {value}
+          </TableButton>
+        : <TableButton style={{ display:"flex", alignItems:"center" }}>
+            <img src={deployIcon} style={{ width:"1.5rem", height:"1.5rem", marginRight:"0.4rem" }} />
+            {value}
+          </TableButton>
+      }
     </div>
   );
 };
@@ -108,12 +124,12 @@ export default function Table({ columns, data }) {
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column) => (
                 <th {...column.getHeaderProps(column.getSortByToggleProps())}>{column.render("Header")}
-                  <span>
+                  <span style={{ color:(column.isSorted ? "#717A94" : "rgba(113, 122, 148, 0.5)" ), marginLeft:"0.4rem"}}>
                     {column.isSorted
                       ? column.isSortedDesc
-                        ? ' ▼'
-                        : ' ▲'
-                      : ''}
+                        ? ' ↓'
+                        : ' ↑'
+                      : ' ⇅'}
                   </span>
                 </th>
               ))}

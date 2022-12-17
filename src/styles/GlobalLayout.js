@@ -16,7 +16,7 @@ const GlobalInner = styled.div`
     height: 100%;
     flex-direction: column;
     justify-content: center;
-    margin: 0 3.2rem;
+    margin: 0 3.2rem 0 9.6rem;
 `;
 
 export { GlobalOuter, GlobalInner };

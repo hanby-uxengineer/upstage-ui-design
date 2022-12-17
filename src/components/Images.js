@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
 import styled from "styled-components";
 import { faker } from '@faker-js/faker';
+import uploadIcon from "../images/upload.png"
 
 faker.seed(100);
 
@@ -19,13 +20,12 @@ const ImageUpload = styled.button`
   border-radius: 0.4rem;
   color: #717A94;
   background: #ECF1FF;
-  transition: all 0.3s ease-in-out;
+  transition: background 0.3s ease-in-out;
 
   :hover {
     cursor: pointer;
-    color: white;
-    background: #A69FFF;
-    transition: all 0.3s ease-in-out;
+    background: #CCD9FF;
+    transition: background 0.3s ease-in-out;
   }
 `;
 
@@ -71,7 +71,10 @@ export default function Images() {
 
   return(
     <StyledImages>
-      <ImageUpload><span style={{ fontSize: "1.4rem", fontWeight: "700" }}>Image<br/>Upload</span></ImageUpload>
+      <ImageUpload>
+        <img src={uploadIcon} style={{ width:"2.4rem", height:"2.4rem" }} /><br />
+        <span style={{ fontSize: "1.2rem", fontWeight: "700" }}>Image<br />Upload</span>
+      </ImageUpload>
       <ImageContainer>
         {
           sample.map((item) => 

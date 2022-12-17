@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Card } from "./Card";
 import { Button } from "./Button";
 import { faker } from "@faker-js/faker";
+import deployLightIcon from "../images/deploy_light.png"
 
 faker.seed(10);
 
@@ -57,7 +58,10 @@ export default function ModelInfo() {
           <p>2022-01-01 00:00:00</p>
         </div>
       </InfoContainer>
-      <Button>Additional Information</Button>
+      <Button style={{ display:"flex", alignItems:"center" }}>
+        <img src={deployLightIcon} style={{ width:"1.5rem", height:"1.5rem", marginRight:"0.4rem" }} />
+        Deploy
+      </Button>
     </StyledCard>
   );
 }

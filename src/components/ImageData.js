@@ -16,6 +16,10 @@ const ImageContentContainer = styled.div`
   div {
     margin-right: 3.2rem;
 
+    p {
+      margin: 0.4rem 0;
+    }
+
     :nth-child(2) {
       p {
         font-weight: 300;

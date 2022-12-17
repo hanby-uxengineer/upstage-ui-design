@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Header from "../components/Header";
+import Navigator from "../components/Navigator";
 import Title from "../components/Title"
 import { GlobalOuter, GlobalInner } from "../styles/GlobalLayout";
 import ImageData from "../components/ImageData";
@@ -25,7 +26,7 @@ const StyledGlobalInner = styled(GlobalInner)`
 `;
 
 const ImageDataContainer = styled.div`
-  width: 70%;
+  width: 60%;
   display: flex;
   flex-direction: column;
 
@@ -42,7 +43,8 @@ export default function Detail() {
   return(
     <StyledDetail>
       <Header />
-      <Title title="Model-01" explanation="모델의 기본 정보와 모델을 학습시키는 데 사용된 이미지 데이터 확인하기"/>
+      <Navigator />
+      <Title title="Model-00" explanation="모델의 기본 정보와 모델을 학습시키는 데 사용된 이미지 데이터를 확인할 수 있습니다"/>
       <GlobalOuter>
         <StyledGlobalInner>
           <ImageDataContainer>

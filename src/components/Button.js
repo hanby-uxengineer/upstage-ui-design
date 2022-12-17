@@ -25,6 +25,11 @@ const TableButton = styled(Button)`
   padding: 0.8rem 2rem;
   line-height: 1rem;
   border-radius: 3rem;
+
+  :hover {
+    background: #CCD9FF;
+    transition: background 0.3s ease-in-out;
+  }
 `;
 
 export { Button, TableButton };

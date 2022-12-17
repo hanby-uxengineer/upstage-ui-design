@@ -5,7 +5,8 @@ import { faker } from '@faker-js/faker';
 import styled from "styled-components";
 import { Card } from "./Card";
 import Table, { Action } from './Table';
-import { Button } from "./Button";
+import { Button, TableButton } from "./Button";
+import addLightIcon from "../images/add_light.png"
 
 faker.seed(100);
 
@@ -19,6 +20,17 @@ const ButtonWrapper = styled.div`
   justify-content: space-between;
 `;
 
+const FilterWrapper = styled.div`
+  margin: 0.8rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+
+  p {
+    margin: 0;
+  }
+`;
+
 export default function Data() {
   const [number, setNumber] = useState(5);
 
@@ -30,12 +42,11 @@ export default function Data() {
     {
       Header: "Model",
       accessor: "model",
-      sticky: "left",
+      disableSortBy: true,
     },
     {
       Header: "Score",
       accessor: "score",
-      sticky: "left",
     },
     {
       Header: "Data A",
@@ -66,15 +77,18 @@ export default function Data() {
       accessor: "my_data",
     },
     {
-      Header: "Deploy",
-      accessor: "deploy",
-      Cell: ({ cell: { value } }) => <Action value={value} />,
-    },
-    {
       Header: "Detail",
       accessor: "detail",
-      Cell: ({ cell: { value } }) => <Link to="/upstage-ui-design/detail"><Action value={value} /></Link>,
+      disableSortBy: true,
+      Cell: ({ cell: { value } }) => <Link to="/upstage-ui-design/detail" style={{ textDecoration:"none" }}><Action value={value} /></Link>,
     },
+    {
+      Header: "Deploy",
+      accessor: "deploy",
+      disableSortBy: true,
+      Cell: ({ cell: { value } }) => <Action value={value} />,
+    },
+    
   ], []);
 
   const data = useMemo(() => 
@@ -88,8 +102,8 @@ export default function Data() {
       data_e: faker.datatype.float({ "min":0, "max":1, "precision": 0.001 }).toFixed(3),
       data_f: faker.datatype.float({ "min":0, "max":1, "precision": 0.001 }).toFixed(3),
       my_data: faker.datatype.float({ "min":0, "max":1, "precision": 0.001 }).toFixed(3),
-      deploy: "deploy",
       detail: "detail",
+      deploy: "deploy",
     }))
   );
 
@@ -97,8 +111,15 @@ export default function Data() {
     <StyledCard>
       <ButtonWrapper>
         <h2>Model <span style={{ color: '#717A94' }}>({number})</span></h2>
-        <Button onClick={onIncrease}>+ Create Model</Button>
+        <Button onClick={onIncrease} style={{ display:"flex", alignItems:"center" }}>
+          <img src={addLightIcon} style={{ width:"1.5rem", height:"1.5rem", marginRight:"0.4rem" }} />
+          Create Model
+        </Button>
       </ButtonWrapper>
+      <FilterWrapper>
+        <p>Sorted by:</p>
+        <TableButton>Data A <span style={{ marginLeft:"0.4rem" }}>▾</span></TableButton>
+      </FilterWrapper>
       <Table columns={columns} data={data} />
     </StyledCard>
   );
