@@ -50,7 +50,7 @@ const Icon = styled.img`
 
   :hover {
     cursor: pointer;
-    opacity: 0.5;
+    opacity: 0.6;
     transition: opacity 0.3s ease-in-out;
   }
 `;
@@ -58,6 +58,12 @@ const Icon = styled.img`
 const SmallIcon = styled(Icon)`
   width: 2.4rem;
   height: 2.4rem;
+  opacity: 0.6;
+
+  :hover {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+  }
 `;
 
 const Avatar = faker.image.avatar(640, 480, true);

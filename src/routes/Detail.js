@@ -44,7 +44,7 @@ export default function Detail() {
     <StyledDetail>
       <Header />
       <Navigator />
-      <Title title="Model-00" explanation="모델의 기본 정보와 모델을 학습시키는 데 사용된 이미지 데이터를 확인할 수 있습니다"/>
+      <Title title="Model-01" explanation="모델의 기본 정보와 모델을 학습시키는 데 사용된 이미지 데이터를 확인할 수 있습니다"/>
       <GlobalOuter>
         <StyledGlobalInner>
           <ImageDataContainer>

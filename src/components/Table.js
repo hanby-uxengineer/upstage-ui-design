@@ -65,7 +65,6 @@ const StyledTable = styled.div`
       font-weight: 500;
 
       span {
-        /* visibility: hidden; */
         display: none;
       }
     }
@@ -83,11 +82,10 @@ const StyledTable = styled.div`
     }
 
     th:nth-child(n+10), td:nth-child(n+10) {
-      max-width: 6rem;
+      max-width: 6.2rem;
       padding: 0.4rem;
 
       span {
-        /* visibility: hidden; */
         display: none;
       }
     }
@@ -96,7 +94,7 @@ const StyledTable = styled.div`
 
 const Action = ({ value }) => {
   return (
-    <div style={{ textAlign: 'center' }}>
+    <div style={{ textAlign:"center", margin:"0.5rem" }}>
       {
         value === "detail"
         ? <TableButton style={{ display:"flex", alignItems:"center" }}>

@@ -1,7 +1,7 @@
 import styled, { keyframes } from "styled-components";
 
 const Button = styled.button`
-  background: #805CFB;
+  background: #A69FFF;
   color: #fff;
   font-size: 1.2rem;
   padding: 1.2rem 2.4rem;
@@ -12,7 +12,7 @@ const Button = styled.button`
 
   :hover {
     cursor: pointer;
-    background: #A69FFF;
+    background: #805CFB;
     transition: background 0.3s ease-in-out;
   }
 `;
